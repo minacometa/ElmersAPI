@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmersAPI", "ElmersAPI\ElmersAPI.csproj", "{24D34963-87DD-4053-A40E-6FBA2F5E00B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmersAPIService", "ElmersAPIService\ElmersAPIService.csproj", "{6633041B-FBA8-4A9E-A8F0-58868FF8FC5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24D34963-87DD-4053-A40E-6FBA2F5E00B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D34963-87DD-4053-A40E-6FBA2F5E00B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D34963-87DD-4053-A40E-6FBA2F5E00B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D34963-87DD-4053-A40E-6FBA2F5E00B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6633041B-FBA8-4A9E-A8F0-58868FF8FC5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6633041B-FBA8-4A9E-A8F0-58868FF8FC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6633041B-FBA8-4A9E-A8F0-58868FF8FC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6633041B-FBA8-4A9E-A8F0-58868FF8FC5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3D967C6-5354-404B-94C2-072EE1C2EEE2}
+	EndGlobalSection
+EndGlobal
