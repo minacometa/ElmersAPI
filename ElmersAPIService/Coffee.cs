@@ -12,21 +12,34 @@ namespace ElmersAPIService
     {
         public CoffeeSettings ProcessCoffee(string settings)
         {
-            short number = Convert.ToInt16(settings, 16);
-            byte[] result = BitConverter.GetBytes(number);            
-            BitArray bitArray = new BitArray(result);
-            uint numberofcups = Bits2Int(result, 4, 8);
-            CoffeeSettings coffeeSettings = new CoffeeSettings()
+            try
             {
-                machine_on = bitArray[0],
-                grinding_beans = bitArray[1],
-                empty_grounds_fault = bitArray[2],
-                water_empty_fault = bitArray[3],
-                number_of_cups_today = numberofcups,
-                descale_required = bitArray[14],
-                have_another_one_carl = CheckBit(bitArray, 13, 15)
-            };
-            return coffeeSettings;
+                //remove "0x"
+                if (settings.StartsWith("0x"))
+                {
+                    settings = settings.Substring(2);
+                }
+                short number = Convert.ToInt16(settings, 16);
+                byte[] result = BitConverter.GetBytes(number);
+                BitArray bitArray = new BitArray(result);
+                uint numberofcups = Bits2Int(result, 4, 8);
+                CoffeeSettings coffeeSettings = new CoffeeSettings()
+                {
+                    machine_on = bitArray[0],
+                    grinding_beans = bitArray[1],
+                    empty_grounds_fault = bitArray[2],
+                    water_empty_fault = bitArray[3],
+                    number_of_cups_today = numberofcups,
+                    descale_required = bitArray[14],
+                    have_another_one_carl = CheckBit(bitArray, 13, 15)
+                };
+                return coffeeSettings;
+            }
+            catch
+            {
+                throw;
+            }
+
         }
 
         private bool CheckBit(BitArray bitArray, int v1, int v2)
