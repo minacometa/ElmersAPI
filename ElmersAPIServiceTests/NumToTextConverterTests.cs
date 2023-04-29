@@ -11,36 +11,18 @@ namespace ElmersAPIService.Tests
     [TestClass()]
     public class NumToTextConverterTests
     {
-        [TestMethod()]
-        public void ConvertNumberToWords_ValidInput()
+        [DataTestMethod]
+        [DataRow("0", "Zero")]
+        [DataRow("13", "Thirteen")]
+        [DataRow("85", "Eighty five")]
+        [DataRow("5 237", "Five thousand two hundred and thirty seven")]
+        [DataRow("-10", "Negative ten")]
+        [DataRow("2 147 483 648", "")]//empty string as this is over the max value of Int32
+        public void ConvertNumberToWords_ConvertNumberToWordsTest(string num, string expectedNumText)
         {
             var converter = new NumToTextConverter();
-            var result = converter.ConvertNumberToWords("5237");
-            Assert.AreEqual("Five thousand two hundred and thirty seven", result);
-        }
-
-        [TestMethod()]
-        public void ConvertNumberToWords_InvalidInputNonNumeric()
-        {
-            var converter = new NumToTextConverter();
-            var result = converter.ConvertNumberToWords("abc");
-            Assert.AreEqual(String.Empty, result);
-        }
-
-        [TestMethod()]
-        public void ConvertNumberToWords_InvalidInputExceedMaxValue()
-        {
-            var converter = new NumToTextConverter();
-            var result = converter.ConvertNumberToWords("2147483648");
-            Assert.AreEqual(String.Empty, result);          
-        }
-
-        [TestMethod()]
-        public void ConvertNumberToWords_InvalidInputLessThanMinValue()
-        {
-            var converter = new NumToTextConverter();
-            var result = converter.ConvertNumberToWords("-2147483649");
-            Assert.AreEqual(String.Empty, result);
-        }
+            var result = converter.ConvertNumberToWords(num);
+            Assert.AreEqual(expectedNumText, result);
+        }        
     }
 }
